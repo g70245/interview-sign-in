@@ -15,7 +15,7 @@ func TestGetUser(t *testing.T) {
 		name:     "TestGetUserSuccess",
 		username: "test",
 		want:     Users[0],
-	}, {
+	},{
 		name:     "TestGetUserFailure",
 		username: "test123",
 		want:     User{},
