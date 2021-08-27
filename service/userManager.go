@@ -19,7 +19,7 @@ func (m *UserManager) Signin(username, password string) error {
 		return errors.New(status.UserNotFound)
 	}
 
-	if err := bcrypt.CompareHashAndPassword([]byte(user.Bcrypted), []byte(user.Salt+password)); err != nil {
+	if err := bcrypt.CompareHashAndPassword([]byte(user.Bcrypted), []byte(password)); err != nil {
 		return errors.New(status.UserPasswordIncorrect)
 	}
 

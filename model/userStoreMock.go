@@ -9,16 +9,15 @@ var Users []User
 
 const (
 	Username = "test"
-	Salt     = "o)t6A@2S'(6!("
 	Password = "abcd1234"
 )
 
 type UserStoreMock struct{}
 
 func init() {
-	bcrypted, err := bcrypt.GenerateFromPassword([]byte(Salt+Password), viper.GetInt("bcrypt.cost"))
+	bcrypted, err := bcrypt.GenerateFromPassword([]byte(Password), viper.GetInt("bcrypt.cost"))
 	if err == nil {
-		Users = append(Users, User{Username, Salt, string(bcrypted)})
+		Users = append(Users, User{Username, string(bcrypted)})
 	}
 }
 

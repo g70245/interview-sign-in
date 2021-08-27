@@ -2,7 +2,6 @@ package model
 
 type User struct {
 	Username string
-	Salt     string
 	Bcrypted string
 }
 
